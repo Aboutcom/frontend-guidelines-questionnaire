@@ -131,6 +131,7 @@ A one-page questionnaire to help your team establish effective frontend guidelin
 - We are using a custom CSS reset, generated via [http://html5reset.org/](http://html5reset.org/), that combines elements from [Eric Meyer's reset](http://meyerweb.com/eric/tools/css/reset/), [HTML5 Doctor's reset](http://html5doctor.com/html-5-reset-stylesheet/), and HTML5 Boilerplate. 
 - We are not using a CSS post-processor at the moment. *Globe will be moving to [Autoprefixer](https://github.com/postcss/autoprefixer) in the near future*.
 - Globe automatically detaermines what CSS files are needed for a given page render based on the component hierarchy.  By default that CSS is rendered minified and concattenated. *Adding "[critical CSS](https://www.smashingmagazine.com/2015/08/understanding-critical-css/)" based on position within that hierarchy may be a future addition, but it is not supported today.*
+- Element Media Queries are supported.  The preferred library is [Marc Schmit's CSS Element Queries](https://github.com/marcj/css-element-queries) library. *This will be supported by default via Mantle soon, but for now it needs to be included manually.*
 
 ### CSS Frameworks
 - We are using [Susy](http://susy.oddbird.net/) for our grid layout mixins. Example usage may be found in the mantle-ref project at http://localhost:8080/grid
