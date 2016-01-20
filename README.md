@@ -1,9 +1,9 @@
-# Frontend Guidelines Questionnaire
+# Frontend Guidelines
 A one-page questionnaire to help your team establish effective frontend guidelines, so that you can write consistent & cohesive code together.
 
 ## HTML
 ### HTML Principles
-- **What are some general principles your team should follow when writing HTML?** *(for example, authoring semantic HTML5 markup, accessibility, etc. See [these](http://www.yellowshoe.com.au/standards/#html) [resources](http://codeguide.co/#html) for [inspiration](http://manuals.gravitydept.com/code/html))*
+- **TODO: What are some general principles your team should follow when writing HTML?** *(for example, authoring semantic HTML5 markup, accessibility, etc. See [these](http://www.yellowshoe.com.au/standards/#html) [resources](http://codeguide.co/#html) for [inspiration](http://manuals.gravitydept.com/code/html))*
 
 
 ### HTML Tools
@@ -103,7 +103,7 @@ A one-page questionnaire to help your team establish effective frontend guidelin
 		border: 3px dashed red; /* the border is what makes it special! */
 	}
 	```
-	_**OPEN QUESTION: should namespacing declarations include the full extension class chain, e.g. `.byline.byline-supergood` or `.foo.bar.shaz`?**_
+	_**OPEN QUESTION: should namespace rules include the full extension class chain -- e.g. `.byline.byline-supergood`, `.foo.bar.shaz` -- or just the extension class?**_
 
 - When you want to modify or extend a component's default behavior when included in a specific component, the modifying rule should
 	- live in the *parent* component's CSS file, under the top-level (namespacing) rule
@@ -130,28 +130,29 @@ A one-page questionnaire to help your team establish effective frontend guidelin
 - **What are the guidelines for using that preprocessor** *(check out [Sass Guidelines](http://sass-guidelin.es/) for inspiration)*?
 - We are using a custom CSS reset, generated via [http://html5reset.org/](http://html5reset.org/), that combines elements from [Eric Meyer's reset](http://meyerweb.com/eric/tools/css/reset/), [HTML5 Doctor's reset](http://html5doctor.com/html-5-reset-stylesheet/), and HTML5 Boilerplate. 
 - We are not using a CSS post-processor at the moment. *Globe will be moving to [Autoprefixer](https://github.com/postcss/autoprefixer) in the near future*.
-- Globe automatically detaermines what CSS files are needed for a given page render based on the component hierarchy.  By default that CSS is rendered minified and concattenated. *Adding "[critical CSS](https://www.smashingmagazine.com/2015/08/understanding-critical-css/)" based on position within that hierarchy may be a future addition, but it is not supported today.*
-- Element Media Queries are supported.  The preferred library is [Marc Schmit's CSS Element Queries](https://github.com/marcj/css-element-queries) library. *This will be supported by default via Mantle soon, but for now it needs to be included manually.*
+- Globe automatically determines what CSS files are needed for a given page render based on the component hierarchy.  By default that CSS is rendered minified and concatenated. *Adding "[critical CSS](https://www.smashingmagazine.com/2015/08/understanding-critical-css/)" based on position within that hierarchy may be a future addition, but it is not supported today.*
+- Element Media Queries are allowed.  The preferred library is [Marc Schmit's CSS Element Queries](https://github.com/marcj/css-element-queries). *This will be supported by default via Mantle soon, but for now it needs to be included manually.*
 
 ### CSS Frameworks
 - We are using [Susy](http://susy.oddbird.net/) for our grid layout mixins. Example usage may be found in the mantle-ref project at http://localhost:8080/grid
 
 ### CSS Style
-- Indentaion should be 4 spaces, not tabs
-- Rulesets should, whenever possible, be organized to match the DOM structure that reference.
+- Indentation should be 4 spaces, not tabs
+- Rulesets should, whenever possible, be organized to match the DOM structure  they reference.
 - Use whitespace as necessary to logically separate rulesets. Properties themselves should generally not be separated. 
 - Properties should be organized alphabetically within a rule. 
 
 	_**OPEN QUESTION: or should they? Here is an alternate [grouping](https://smacss.com/book/formatting#grouping) methodology**_
-- Most comments should not appear in the rendered CSS. Following the [SCSS comment style](http://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html#comments), use `//` for most comment blocks, and `/* */` if you want the comments to appear.
+- Most comments should not appear in the rendered CSS. Following the [SCSS comment style](http://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html#comments), use `//` for most comment blocks, and `/* */` if you want the comments to appear. 
+- _**OPEN QUESTION: CSS documentation comments?**_
 
 ---------------
 
 ## JavaScript
 
 ### JavaScript Principles
-- Progressive enhancement. As much as possibly, JS should *augment* functionality, not be required in order to provide it.
-- **What are some general principles your team should follow when writing JavaScript?** *(See [these](https://github.com/airbnb/javascript) [resources](https://github.com/rwaldron/idiomatic.js) for [inspiration](https://github.com/styleguide/javascript))*
+- Follow the principle of progressive enhancement. As much as possibly, JS should *augment* functionality, not be required in order to provide it.
+- **TODO: What are some general principles your team should follow when writing JavaScript?** *(See [these](https://github.com/airbnb/javascript) [resources](https://github.com/rwaldron/idiomatic.js) for [inspiration](https://github.com/styleguide/javascript))*
 
 
 ### JavaScript tools
@@ -163,8 +164,8 @@ A one-page questionnaire to help your team establish effective frontend guidelin
 ### JavaScript Style 
 *(See [these](https://github.com/airbnb/javascript) [resources](https://github.com/rwaldron/idiomatic.js) for [inspiration](https://github.com/styleguide/javascript))*
 - Indentation should be 4 spaces, no tabs.
-- **What does JS commenting look like?** 
-- [What patterns are you following](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)?
+- **TODO: What does JS commenting look like?** 
+- **TODO: [What patterns are you following](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)?**
 
 ---------------
 
@@ -211,7 +212,7 @@ It's important to recognize the difference between ["support" and "optimization"
 -----------
 
 ## Documentation
-- Globe -- at the Mantle layer -- includes built-in pattern library functionality. Your workflow for creating and documenting a new component would probably work something like this:
+- Globe includes built-in pattern library functionality at the Mantle layer. Your workflow for creating and documenting a new component would probably work something like this:
 	- **Build a "grey-box" version of your component.**  Add defaults for all dynamic properties/models that the component requires. *TODO: If a property is optional, stub it without a value; e.g., `<property name="optional"/>`*. *TODO: If the property is expected to have a finite set of values (i.e., being used in a switch statement, add `type="enum[x,y,z]"`*
 
 		We recommend using the folling placeholders at this point: [placehold.it](https://placehold.it) for images, Lorem Ipsum for text, and the `json` model for complex objects).  Layout and styling are optional here.
@@ -221,7 +222,7 @@ It's important to recognize the difference between ["support" and "optimization"
     	- `<description>` -- human-readable, does what it says on the box
    - **Access your component at {server}/pattern-library/{category}.**  Spaces in the `category` will be converted to dashes for the URL. Additional documentation will be autogenerated regarding stylesheets, component xml, required properties, etc.
    - **Add styling to the component and iterate in the PL!**
-
+- Specific startup documentation should live in your project's README.md file
 - **Where does your documentation live**? What are the links to the documentation?
 - **Who's responsible for maintaining and governing the documentation**?
 - **What happens when the guidelines are updated**?
