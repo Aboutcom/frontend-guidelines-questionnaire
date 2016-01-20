@@ -109,7 +109,7 @@ A one-page questionnaire to help your team establish effective frontend guidelin
 	```
 	_**OPEN QUESTION: should namespace rules include the full extension class chain -- e.g. `.byline.byline-supergood`, `.foo.bar.shaz` -- or just the extension class?**_
 
-- When you want to modify or extend a component's default behavior when included in a specific component, the modifying rule should live in the *parent* component's CSS file, under the top-level (namespacing) rule:
+- When you need to modify or extend a component's default behavior when included in a specific component, the modifying rule should live in the *parent* component's CSS file, under the top-level (namespacing) rule:
 	```  
   	.content-header {
 		> .byline {
@@ -117,7 +117,7 @@ A one-page questionnaire to help your team establish effective frontend guidelin
 		}
 	}
 	```	
-	Only where necessry (e.g., because the component is included in multiple different locations), should you reference the location in the rule.
+	Only where necessary (e.g., because the component is included in multiple different locations), should you reference the location in the rule.
 - As a general rule, components should be designed to be fluid by default, and therefore unopinionated regarding width. Width is more likely to be set in layouts, or (as in the example above) for specific inclusions ("instances") of the component.
 - **What are some general principles your team should follow when writing CSS?** *(For example, modularity, avoiding long selector strings, etc. See [these](http://cssguidelin.es/) [resources](http://www.yellowshoe.com.au/standards/#css) [for](http://manuals.gravitydept.com/code/css) [inspiration](http://codeguide.co/#css))*
 
@@ -130,7 +130,7 @@ A one-page questionnaire to help your team establish effective frontend guidelin
 - Element Media Queries are allowed.  The preferred library is [Marc Schmit's CSS Element Queries](https://github.com/marcj/css-element-queries). *This will be supported by default via Mantle soon, but for now it needs to be included manually.*
 
 ### CSS Frameworks
-- We are using [Susy](http://susy.oddbird.net/) for our grid layout mixins. Example usage may be found in the mantle-ref project at http://localhost:8080/grid
+- We are using the semantic [Susy](http://susy.oddbird.net/) for our grid layout mixins. Example usage may be found in the mantle-ref project _**at TODO**_
 
 ### CSS Style
 - Indentation should be 4 spaces, not tabs
@@ -147,7 +147,7 @@ A one-page questionnaire to help your team establish effective frontend guidelin
 ## JavaScript
 
 ### JavaScript Principles
-- Follow the principle of progressive enhancement. As much as possibly, JS should *augment* functionality, not be required in order to provide it.
+- Follow the principle of progressive enhancement. As much as possible, JS should *augment* functionality, not be required in order to provide it.
 - **TODO: What are some general principles your team should follow when writing JavaScript?** *(See [these](https://github.com/airbnb/javascript) [resources](https://github.com/rwaldron/idiomatic.js) for [inspiration](https://github.com/styleguide/javascript))*
 
 
@@ -203,7 +203,7 @@ It's important to recognize the difference between ["support" and "optimization"
      	- **Safari** (all other OS)
      	- **Blackberry**
     
-- We optimize for Windows 7+, MacOS, and Ubuntu desktop machines, as well as iOS 4+ and Android 4.3+ mobile/tablet devices.
+- We optimize for Windows 7+, MacOS, and Ubuntu desktop machines, as well as iOS 4+ and Android 4.4+ mobile/tablet devices.
 
 -----------
 
@@ -211,17 +211,17 @@ It's important to recognize the difference between ["support" and "optimization"
 - Globe includes built-in pattern library functionality at the Mantle layer. Your workflow for creating and documenting a new component would probably work something like this:
 	- **Build a "grey-box" version of your component.**  Add defaults for all dynamic properties/models that the component requires. *TODO: If a property is optional, stub it without a value; e.g., `<property name="optional"/>`*. *TODO: If the property is expected to have a finite set of values (i.e., being used in a switch statement, add `type="enum[x,y,z]"`*
 
-		We recommend using the folling placeholders at this point: [placehold.it](https://placehold.it) for images, Lorem Ipsum for text, and the `json` model for complex objects).  Layout and styling are optional here.
+		We recommend using the following placeholders at this point: [placehold.it](https://placehold.it) for images, Lorem Ipsum for text, and the `json` model for complex objects).  Layout and styling are optional here.
  	- **Add documentation to your `<component>` tag.**
      	- `<category>` -- this is the trigger that will cause the component's inclusion in the PL. Supports a nesting tree structure by way of `/` characters.
   		- `<displayName>` -- pretty name
-    	- `<description>` -- largely for product
-     	- `<documentation>` -- largely for devs
+    	- `<description>` -- what is this for?
+     	- `<documentation>` -- how does this work?
    - **Access your component at {server}/pattern-library/{category}.**  Spaces in the `category` will be converted to dashes for the URL. Additional documentation will be autogenerated regarding stylesheets, component xml, required properties, etc.
    - **Add styling to the component and iterate in the PL!**
 - Specific startup documentation should live in your project's README.md file
 - **Where does your documentation live**? What are the links to the documentation?
-- **Who's responsible for maintaining and governing the documentation**?
+- Everyone on the team is responsible for maintaining the documentation.  
 - **What happens when the guidelines are updated**?
 
 -----------
